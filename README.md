@@ -6,7 +6,7 @@ broke and how it was fixed, tutorials I wrote or wanted to keep, and the state o
 
 the hardware.
 
-**28 documents**, in four groups.
+**27 documents**, in four groups.
 
 | Group | What is in it |
 | --- | --- |
@@ -36,7 +36,6 @@ the hardware.
 
 | Document | What it covers |
 | --- | --- |
-| [aur-supply-chain-scanner.md](fixes/aur-supply-chain-scanner.md) | Scanner for the Atomic Arch AUR supply-chain attack — IOCs, eBPF rootkit checks, persistence hunting |
 | [hyprland-lua-migration.md](fixes/hyprland-lua-migration.md) | Repairing the Hyprland config after Omarchy's Lua migration |
 | [maple-preview-ternary-quantization.md](fixes/maple-preview-ternary-quantization.md) | Why Ollama refuses Maple Preview, and the custom llama.cpp build that runs it |
 | [recover-encrypted-drive.md](fixes/recover-encrypted-drive.md) | Mounting a LUKS2-encrypted drive from arch-install when boot fails |

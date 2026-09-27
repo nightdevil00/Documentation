@@ -131,14 +131,22 @@ See the [ArchWiki TLP page](https://wiki.archlinux.org/title/TLP) and
 
 ## Install
 
-```bash
-omarchy plugin add https://github.com/nightdevil00/tlp.battery --enable
+This plugin now lives in the [Plugins](https://github.com/nightdevil00/Plugins)
+collection rather than a repository of its own:
+
+```sh
+git clone https://github.com/nightdevil00/Plugins.git
+cd Plugins
+./install.sh tlp.battery
 ```
 
 ## Update
 
-```bash
-omarchy plugin update tlp.battery
+`omarchy plugin update` does not work for plugins installed this way, because an
+installed copy has no git checkout of its own. Use the script instead:
+
+```sh
+./install.sh --update tlp.battery
 ```
 
 ## Uninstall
