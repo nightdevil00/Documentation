@@ -6,7 +6,7 @@ broke and how it was fixed, tutorials I wrote or wanted to keep, and the state o
 
 the hardware.
 
-**27 documents**, in four groups.
+**32 documents**, in four groups.
 
 | Group | What is in it |
 | --- | --- |
@@ -23,6 +23,7 @@ the hardware.
 | --- | --- |
 | [animations.md](omarchy/animations.md) | Hyprland window and workspace animations |
 | [disable-autologin.md](omarchy/disable-autologin.md) | Turning off automatic login |
+| [Omarchy-LUKS-Keyfile-Auto-Unlock-Guide.md](omarchy/Omarchy-LUKS-Keyfile-Auto-Unlock-Guide.md) | Unattended boot by embedding a LUKS keyfile in the initramfs — with the security trade-off written down |
 | [fonts.md](omarchy/fonts.md) | Installing and configuring custom fonts |
 | [networkmanager-8021x-wifi.md](omarchy/networkmanager-8021x-wifi.md) | Replacing iwd with NetworkManager for 802.1X WiFi |
 | [omarchy-system-explained.md](omarchy/omarchy-system-explained.md) | How Omarchy actually works — directory structure, config, themes, hooks, every bin script, keybindings, migrations |
@@ -65,16 +66,29 @@ the hardware.
 
 | Document | What it covers |
 | --- | --- |
+| [all_keybinds_in-one-place.md](tutorials/all_keybinds_in-one-place.md) | Copying Omarchy's packaged keybindings into `~/.config/hypr/` so they can be read and edited together |
 | [installing-arch-linux.md](tutorials/installing-arch-linux.md) | Arch Linux installation, written up as I learned it |
+| [journalctl-guide.md](tutorials/journalctl-guide.md) | Field guide for reading systemd logs: time filters, units, boots, following live, disk usage |
 | [moving-home-to-encrypted-drive.md](tutorials/moving-home-to-encrypted-drive.md) | Moving /home onto a separate LUKS2 + Btrfs drive |
 | [moving-home-to-new-nvme.md](tutorials/moving-home-to-new-nvme.md) | Moving /home to a new NVMe drive |
+| [nvme_install_omarchy.md](tutorials/nvme_install_omarchy.md) | Installing Windows to a secondary NVMe from the host with QEMU, and the Secure Boot gate that pushed it back to 10 22H2 |
+| [scratchpad_media.md](tutorials/scratchpad_media.md) | A `SUPER + M` special workspace holding social web apps side by side on the scrolling layout |
 | [teaching-opencode-julia.md](tutorials/teaching-opencode-julia.md) | Wiring a small local model into opencode as a decision maker, explained plainly |
+
+Two files sit alongside these notes rather than in a table: `tutorials/qemu-win11.sh`, the installer script for the NVMe walkthrough above, and `omarchy/Omarchy_Virtualbox.doc`.
 
 ## Related
 
 | Repo | What it is |
 | --- | --- |
-| [Plugins](https://github.com/nightdevil00/Plugins) | 15 Omarchy shell plugins |
+| [Plugins](https://github.com/nightdevil00/Plugins) | 16 Omarchy shell plugins |
 | [Tools](https://github.com/nightdevil00/Tools) | Standalone applications |
+| [Scripts](https://github.com/nightdevil00/Scripts) | Installer, recovery and setup scripts |
 | [Dotfiles](https://github.com/nightdevil00/Dotfiles) | Hyprland configuration |
 | [Wallpapers](https://github.com/nightdevil00/Wallpapers) | Desktop backgrounds |
+| [onesystem](https://github.com/nightdevil00/onesystem) | Shared GPU decision service for OpenCode sessions |
+| [HumVisual](https://github.com/nightdevil00/HumVisual) | Agent skill for prose and visual explanations |
+
+Notes here that describe tooling: `machine/laya-mcp-on-this-laptop.md`,
+`machine/local-llms-with-ollama.md`, and
+`tutorials/teaching-opencode-julia.md`.
