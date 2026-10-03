@@ -4,9 +4,9 @@ Notes worth keeping from working on this machine: how Omarchy fits together, wha
 
 broke and how it was fixed, tutorials I wrote or wanted to keep, and the state of
 
-the hardware.
+the hardware — plus a set of installable agent skills for the same ground.
 
-**32 documents**, in four groups.
+**32 documents and 18 agent skills**, in five groups.
 
 | Group | What is in it |
 | --- | --- |
@@ -14,6 +14,7 @@ the hardware.
 | [`fixes/`](fixes/) | Problems that came up, and what solved them |
 | [`machine/`](machine/) | This laptop specifically — hardware, power, audio, local models |
 | [`tutorials/`](tutorials/) | Step-by-step guides |
+| [`skills/`](skills/) | Agent skills you install, covering the desktop and the tools around it |
 
 ## omarchy/
 
@@ -77,6 +78,58 @@ the hardware.
 
 Two files sit alongside these notes rather than in a table: `tutorials/qemu-win11.sh`, the installer script for the NVMe walkthrough above, and `omarchy/Omarchy_Virtualbox.doc`.
 
+## skills/
+
+*Agent skills you install, covering the desktop and the tools around it.*
+
+Unlike the notes above, this folder is meant to be run. Each skill is a
+`SKILL.md` that teaches a coding agent the ground it would otherwise guess at,
+and `install.sh` puts them where your agents look for skills.
+
+```bash
+git clone https://github.com/nightdevil00/Documentation.git
+cd Documentation/skills
+./install.sh
+```
+
+That copies every skill into `~/.agents/skills/` — the agent-agnostic directory
+Omarchy itself uses — then symlinks each one into the claude, codex, pi, gemini
+and hermes skill directories, so every agent shares one copy. Restart your agent
+afterwards. `./install.sh --list` shows what would happen; `--dry-run`,
+`--force`, `--no-mirror` and `--uninstall` are also available.
+
+| Skill | What it covers |
+| --- | --- |
+| [omarchy](skills/omarchy/SKILL.md) | The `omarchy` CLI, config layering, the shell, hooks, toggles, updates |
+| [omarchy-plugin](skills/omarchy-plugin/SKILL.md) | Authoring and validating shell plugins, the manifest schema |
+| [omarchy-theme](skills/omarchy-theme/SKILL.md) | `colors.toml`, the palette resolver, `*.tpl` templating |
+| [hyprland](skills/hyprland/SKILL.md) | Hyprland 0.56 Lua config, window and layer rules, dispatchers |
+| [quickshell](skills/quickshell/SKILL.md) | The QML shell toolkit — windows, IPC, IO, `qs.*` imports, gotchas |
+| [sddm](skills/sddm/SKILL.md) | The greeter, sessions, PAM, autologin, the uwsm unit chain |
+| [systemd](skills/systemd/SKILL.md) | Units, drop-ins, journal, timers, user services, logind |
+| [wayland-environment](skills/wayland-environment/SKILL.md) | Portals, XDG session env, per-app Wayland enablement |
+| [arch](skills/arch/SKILL.md) | pacman, AUR, boot, mkinitcpio, networking, audio, rollback |
+| [bash](skills/bash/SKILL.md) | Strict-mode headers, quoting, arrays, ShellCheck, systemd and cron |
+| [fish](skills/fish/SKILL.md) | `config.fish`, scopes, lists, functions, POSIX translation |
+| [python](skills/python/SKILL.md) | venvs, `uv`, `pyproject.toml`, typing, ruff, pytest, asyncio |
+| [rust](skills/rust/SKILL.md) | Toolchains, Cargo, ownership, async, FFI, cross-compilation |
+| [github](skills/github/SKILL.md) | git, `gh`, pull requests, Actions, security posture |
+| [github-pages](skills/github-pages/SKILL.md) | Pages, Jekyll, static site generators, custom domains |
+| [niri](skills/niri/SKILL.md) | The Niri compositor — not installed here, kept as reference |
+| [noctalia](skills/noctalia/SKILL.md) | The Noctalia shell — not installed here, kept as reference |
+| [caelestia](skills/caelestia/SKILL.md) | The Caelestia shell — not installed here, kept as reference |
+
+`skills/omarchy/` also carries the six topic guides shipped with Omarchy itself —
+`capture.md`, `contributing.md`, `hooks.md`, `hyprland.md`, `plugins.md` and
+`theming.md` — alongside its own `SKILL.md`.
+
+The claims are grounded in a live install rather than recalled documentation:
+Hyprland 0.56.2, Quickshell 0.3.1, Omarchy 4.0.0.r6713, SDDM 0.21.0, Python
+3.14.7, git 2.56.0. Every `omarchy` route cited was checked against
+`omarchy commands` or run directly, and the skills call out commands that do not
+exist — `omarchy debug` among them, since the report tool is the standalone
+`omarchy-debug` binary.
+
 ## Related
 
 | Repo | What it is |
@@ -92,3 +145,7 @@ Two files sit alongside these notes rather than in a table: `tutorials/qemu-win1
 Notes here that describe tooling: `machine/laya-mcp-on-this-laptop.md`,
 `machine/local-llms-with-ollama.md`, and
 `tutorials/teaching-opencode-julia.md`.
+
+The Omarchy skills in [`skills/`](skills/) overlap on purpose with
+[`omarchy/`](omarchy/): the notes explain how the system works, the skills tell
+an agent how to work on it without re-deriving any of that.
